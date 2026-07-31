@@ -1,0 +1,377 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1.25rem;
+  --background: oklch(0.985 0.014 80);
+  --foreground: oklch(0.24 0.05 30);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.24 0.05 30);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.05 30);
+  --primary: oklch(0.68 0.2 41);
+  --primary-foreground: oklch(0.99 0.01 80);
+  --secondary: oklch(0.96 0.035 75);
+  --secondary-foreground: oklch(0.35 0.09 40);
+  --muted: oklch(0.96 0.02 75);
+  --muted-foreground: oklch(0.53 0.06 45);
+  --accent: oklch(0.62 0.23 349);
+  --accent-foreground: oklch(0.99 0.01 80);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0.01 80);
+  --border: oklch(0.9 0.03 70);
+  --input: oklch(0.9 0.03 70);
+  --ring: oklch(0.68 0.2 41);
+  --sun: oklch(0.78 0.17 68);
+  --violet: oklch(0.56 0.19 285);
+  --girl: oklch(0.62 0.23 349);
+  --boy: oklch(0.56 0.19 285);
+  --gradient-sunset: linear-gradient(120deg, var(--primary), var(--sun) 45%, var(--accent) 80%);
+  --gradient-night: linear-gradient(120deg, var(--violet), var(--accent));
+  --shadow-pop: 0 14px 34px -14px color-mix(in oklab, var(--primary) 45%, transparent);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@theme inline {
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-sun: var(--sun);
+  --color-violet: var(--violet);
+  --color-girl: var(--girl);
+  --color-boy: var(--boy);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-image: radial-gradient(
+        900px 500px at 8% -8%,
+        color-mix(in oklab, var(--sun) 22%, transparent),
+        transparent
+      ),
+      radial-gradient(
+        800px 500px at 100% 0%,
+        color-mix(in oklab, var(--accent) 16%, transparent),
+        transparent
+      );
+    background-repeat: no-repeat;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+/* Routine app components */
+@utility hero-title {
+  background: var(--gradient-sunset);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility routine-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: var(--card);
+  padding: 0.65rem 1.1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--foreground);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@utility routine-tab-active {
+  background: var(--gradient-sunset);
+  border-color: transparent;
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-pop);
+}
+
+@utility kid-card {
+  border-radius: var(--radius-3xl);
+  background: var(--card);
+  border: 2px solid var(--border);
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px -28px color-mix(in oklab, var(--foreground) 45%, transparent);
+}
+
+@utility kid-girl {
+  border-color: color-mix(in oklab, var(--girl) 45%, transparent);
+
+  & .kid-avatar {
+    background: color-mix(in oklab, var(--girl) 18%, var(--card));
+  }
+
+  & .progress-fill {
+    background: linear-gradient(90deg, var(--sun), var(--girl));
+  }
+}
+
+@utility kid-boy {
+  border-color: color-mix(in oklab, var(--boy) 45%, transparent);
+
+  & .kid-avatar {
+    background: color-mix(in oklab, var(--boy) 18%, var(--card));
+  }
+
+  & .progress-fill {
+    background: linear-gradient(90deg, var(--primary), var(--boy));
+  }
+}
+
+@utility kid-avatar {
+  display: grid;
+  place-items: center;
+  height: 3.25rem;
+  width: 3.25rem;
+  border-radius: 999px;
+  font-size: 1.75rem;
+}
+
+@utility reset-btn {
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted-foreground);
+  background: var(--secondary);
+
+  &:hover {
+    color: var(--foreground);
+  }
+}
+
+@utility progress-track {
+  height: 0.9rem;
+  width: 100%;
+  border-radius: 999px;
+  background: var(--muted);
+  overflow: hidden;
+}
+
+@utility progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+@utility task-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.9rem;
+  width: 100%;
+  text-align: left;
+  border-radius: var(--radius-2xl);
+  border: 2px solid var(--border);
+  background: var(--card);
+  padding: 0.85rem 1rem;
+  transition:
+    transform 0.12s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: scale(0.985);
+  }
+}
+
+@utility task-done {
+  background: color-mix(in oklab, var(--sun) 16%, var(--card));
+  border-color: color-mix(in oklab, var(--primary) 55%, transparent);
+
+  & .task-label {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+
+  & .task-check {
+    background: var(--gradient-sunset);
+    color: var(--primary-foreground);
+    border-color: transparent;
+  }
+}
+
+@utility task-emoji {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+@utility task-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+@utility task-check {
+  display: grid;
+  place-items: center;
+  height: 1.75rem;
+  width: 1.75rem;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  font-weight: 800;
+  color: transparent;
+}
+
+@keyframes star-pop {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(-50%, -140%) scale(1.5) rotate(72deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -260%) scale(0.5) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@utility star-pop {
+  animation: star-pop 0.65s ease-out forwards;
+}
